@@ -1,5 +1,6 @@
 import 'package:fashoo/constants/theme.dart';
 import 'package:fashoo/providers/navigation/main_navigation_provider.dart';
+import 'package:fashoo/screens/chat/chat_page.dart';
 import 'package:fashoo/screens/explore/explore.dart';
 import 'package:fashoo/screens/home/home_page.dart';
 import 'package:flutter_boxicons/flutter_boxicons.dart';
@@ -45,9 +46,7 @@ class _MainNavigationState extends State<MainNavigation> {
     const Center(
       child: Text("add post"),
     ),
-    const Center(
-      child: Text("Chat"),
-    ),
+    ChatPage(),
     const Center(
       child: Text("Settings"),
     ),
