@@ -4,7 +4,6 @@ import 'package:fashoo/screens/navigation/main_navigation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-
 void main() {
   runApp(const MyApp());
 }
@@ -17,9 +16,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (_)=>MainNavigationProvider())
+        ChangeNotifierProvider(create: (_) => MainNavigationProvider())
       ],
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
         theme: Themes().lightTheme,
         themeMode: ThemeMode.light,
@@ -28,4 +28,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-

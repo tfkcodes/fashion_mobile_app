@@ -1,3 +1,4 @@
+import 'package:fashoo/component/post_component.dart';
 import 'package:fashoo/component/profile_avatar.dart';
 import 'package:fashoo/component/social_action_btn.dart';
 import 'package:fashoo/component/story_card.dart';
@@ -19,19 +20,30 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0,
-        title: const Row(
+        title: Row(
           children: [
+            // CircleAvatar(
+            //   backgroundImage: AssetImage('assets/logo/logo.png'),
+            // ),
+            Container(
+              height: 35,
+              width: 35,
+              decoration: BoxDecoration(
+                  image: DecorationImage(
+                      image: AssetImage("assets/logo/logo.png"),
+                      fit: BoxFit.cover)),
+            ),
             Text(
               'Social',
               style: TextStyle(
-                color: Colors.orange,
+                color: Theme.of(context).primaryColorDark,
                 fontWeight: FontWeight.bold,
               ),
             ),
             Text(
               '.',
               style: TextStyle(
-                color: Colors.red,
+                color: Theme.of(context).colorScheme.primary,
                 fontWeight: FontWeight.bold,
               ),
             ),
@@ -65,86 +77,26 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             // Post section
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  ProfileAvatar(
-                    nameColor: const Color(0xff000000),
-                    handleColor: Theme.of(context).colorScheme.primary,
-                  ),
-                  const SizedBox(height: 10),
-                  Container(
-                    height: MediaQuery.of(context).size.height * 0.5,
-                    width: MediaQuery.of(context).size.width,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(9),
-                      image: const DecorationImage(
-                          image: NetworkImage(
-                              'https://images.unsplash.com/photo-1676121455681-01a6eeb870a7?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fHNsZWV2ZXxlbnwwfHwwfHx8MA%3D%3D'),
-                          fit: BoxFit.cover),
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 9,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      SizedBox(
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: [
-                            Row(
-                              children: [
-                                Icon(
-                                  Boxicons.bxs_heart,
-                                  color: Theme.of(context).primaryColorDark,
-                                ),
-                                const Text("45.0K"),
-                              ],
-                            ),
-                            Row(
-                              children: [
-                                Icon(
-                                  Boxicons.bx_comment_dots,
-                                  color: Theme.of(context).primaryColorDark,
-                                ),
-                                const Text("45.0K"),
-                              ],
-                            ),
-                            Row(
-                              children: [
-                                Icon(
-                                  Boxicons.bxl_telegram,
-                                  color: Theme.of(context).primaryColorDark,
-                                ),
-                                const Text("4K"),
-                              ],
-                            )
-                          ],
-                        ),
-                      ),
-                      Row(
-                        children: [
-                          Icon(
-                            Boxicons.bx_bookmark,
-                            color: Theme.of(context).primaryColorDark,
-                          ),
-                          const Text("save"),
-                        ],
-                      )
-                    ],
-                  ),
-                  Text(
-                    """To match the design shown in the new image, you'll need to adjust the story item widget to have rounded rectangle shapes instead of circles and ensure the placement of the "Live" indicator and the "+" icon for adding stories aligns with the design.""",
-                    maxLines: 3,
-                    overflow: TextOverflow.ellipsis,
-                  )
-                ],
-              ),
-            ),
+            PostComponent(media: [
+              PostMedia(
+                  type: PostMediaType.image,
+                  url:
+                      'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZmFzaGlvbnxlbnwwfHwwfHx8MA%3D%3D'),
+              PostMedia(
+                  type: PostMediaType.image,
+                  url:
+                      'https://images.unsplash.com/photo-1509631179647-0177331693ae?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8ZmFzaGlvbnxlbnwwfHwwfHx8MA%3D%3D')
+            ]),
+            PostComponent(media: [
+              PostMedia(
+                  type: PostMediaType.image,
+                  url:
+                      'https://images.unsplash.com/photo-1520367745676-56196632073f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8YWZyaWNhbiUyMGZhc2hpb24lMjBtZW58ZW58MHx8MHx8fDA%3D'),
+              PostMedia(
+                  type: PostMediaType.image,
+                  url:
+                      'https://images.unsplash.com/photo-1520367445093-50dc08a59d9d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8YWZyaWNhbiUyMGZhc2hpb24lMjBtZW58ZW58MHx8MHx8fDA%3D')
+            ])
           ],
         ),
       ),
