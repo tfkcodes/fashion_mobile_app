@@ -1,9 +1,5 @@
 import 'package:fashoo/component/post_component.dart';
-import 'package:fashoo/component/profile_avatar.dart';
-import 'package:fashoo/component/social_action_btn.dart';
-import 'package:fashoo/component/story_card.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_boxicons/flutter_boxicons.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
